@@ -3,52 +3,82 @@ import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 
 import './App.css'
 
+// react-icons
+import { BiHomeSmile } from "react-icons/bi";
+import { FaPhone, FaPortrait } from "react-icons/fa";
+
 // components
-import Hero from './components/Hero'
 import ServiceSection from "./components/Service";
-import ProjectsSection from "./components/project";
 import SkillsSection from "./components/Skills";
 import FooterSection from "./components/Footer";
 
 //pages
-import Home from './pages/Home'
+import Home from "./pages/Home";
 import ProjectPage from "./pages/project";
+import ContactPage from "./pages/contact";
+import AboutMe from "./pages/about";
 
-function App() {
+
+function Apple() {
   const [count, setCount] = useState(0)
 
-  const images = [
-    {
-      image: "darkA.jpg",
-    },
-    {
-      image: "darkB.jpg",
-    },
-    
-    {
-      image: "darkc.jpg",
-    },
-  ];
-
+ 
   return (
-    <section className="w-full h-auto relative">
-      <nav className=" text-white bg-black sticky top-0 flex justify-between  lg:rounded-2xl lg:p-5 lg:px-40">
-        <h1 className="font-extrabold text-red-600 hover:text-red-300  text-2xl self-center  ">
-          sheriff
-        </h1>
-        <ul className="hidden lg:flex self-center  justify-end items-center p-2 w-[50%] gap-8 text-[16px] font-bold">
-          <li className="hover:text-gray-300 ">service</li>
-          <li className="hover:text-gray-300">project</li>
-          <li className="hover:text-gray-300">about</li>
-          <li className="text-red-400 hover:text-red-300  ">
-            contact
-          </li>
-        </ul>
-      </nav>
+    <BrowserRouter>
+      <section className="w-full h-auto relative">
+        {/* navigation */}
+        <nav className=" text-white bg-black sticky top-0 flex justify-between px-3 py-5 lg:rounded-2xl lg:mx-36 lg:p-5">
+          <h1 className="font-extrabold text-red-600 hover:text-red-300  text-2xl self-center  ">
+            sheriff
+          </h1>
 
-      <Home />
-      <FooterSection />
-    </section>
+          {/* to display in smaller screen*/}
+          <ul className=" lg:hidden flex  justify-end w-[50%] gap-3 text-[16px] ">
+            <Link className="hover:text-gray-300 self-center" to="/about">
+              <FaPortrait />
+            </Link>{" "}
+            <Link
+              className="text-red-400 hover:text-red-300  self-center"
+              to="/contact"
+            >
+              <FaPhone />
+            </Link>
+            <Link className="hover:text-gray-300 self-center" to="/">
+              <BiHomeSmile />
+            </Link>{" "}
+          </ul>
+
+          {/* to display in larger screen*/}
+          <ul className="hidden lg:flex  justify-end w-[50%] gap-8 text-[16px] ">
+            <Link className="hover:text-gray-300" to="/">
+              Home
+            </Link>{" "}
+            <Link className="hover:text-gray-300" to="/project">
+              project
+            </Link>{" "}
+            <Link className="hover:text-gray-300" to="/about">
+              about
+            </Link>{" "}
+            <Link className="text-red-400 hover:text-red-300 " to="/contact">
+              contact me
+            </Link>
+          </ul>
+        </nav>
+
+        {/* routes */}
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contactbutton" element={<ContactPage />} />
+          <Route path="/viewprojectbutton" element={<ProjectPage />} />
+          <Route path="/project" element={<ProjectPage />} />
+          <Route path="/about" element={<AboutMe />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+
+        <FooterSection />
+      </section>
+    </BrowserRouter>
   );
 }
 
@@ -61,4 +91,4 @@ function App() {
 
 
 
-export default App
+export default Apple;

@@ -4,19 +4,20 @@ export default function ProjectsSection() {
   const projects = [
     {
       title: "Portfolio Website",
-      image: "/projects/portfolio.png",
+      image: "port.png",
       description:
         "A modern personal portfolio built with React.js and TailwindCSS.",
+      links: "",
     },
     {
-      title: "E-Commerce UI",
-      image: "/projects/ecommerce.png",
-      description: "A clean and responsive e-commerce user interface.",
+      title: "S-tech(calculator)",
+      image: "calculator-image.jpg",
+      description: "A clean and responsive calculator user interface.",
     },
     {
-      title: "Weather App",
-      image: "/projects/weather.png",
-      description: "Weather forecasting app using API calls.",
+      title: "Landing page",
+      image: "landingpage.png",
+      description: "responsive landing page",
     },
   ];
 
